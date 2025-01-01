@@ -62,16 +62,16 @@ class AddPlaceAPI {
                         "\"address\":\""+newAddress+"\",\n" +          // New updated address
                         "\"key\":\"qaclick123\"\n" +
                         "}\n" +
-                        " ")   //// Updateplace is a method in the payload file that has the input
+                        " ")
 
         .when().put("maps/api/place/update/json")
         .then().assertThat().log().all().statusCode(200)   // Validating status code
-                                        .body(    "msg", equalTo("Address successfully updated"));      // Validating a success message
+                                        .body("msg", equalTo("Address successfully updated"));      // Validating a success message
                                                                                                                    // If the place ID is wrong we get a different error message.
                                                                                                                     // This error message is written by dev. All I do is validate :(
 
             // We validated if the address is updated or not with this successful error message. But thats is not the way to do it
-            // We need to compare the address updated with the address input we have given. We'll se how its done.
+            // We need to compare the address updated with the address input we have given. We'll see how its done.
 
 
             // We can do this by GetPlace API where we can get the address of that place ID and we have the compare and verify the address.
