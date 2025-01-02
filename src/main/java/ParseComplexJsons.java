@@ -2,38 +2,40 @@
 Consider the below complex json where the fields have subfields and also an array.
 We are going to understand how to parse such nested/complex json.
 
-We wrote this json in the payload file in the ComplexJson method.
+We wrote this json in the payload.java file in the ComplexJson method.
 
 Note: Often times the dev will give us the expected response of the API even before the API is developed.
 We don't need to wait until the API is developed and then start automating it.
 Instead, we can start automating it based on the expected responses that the dev has given us.
 
-Inorder to do that we take the expected response from the dev and write it into a class and match the
+Inorder to do that, we take the expected response from the dev and write it into a class and match the
 response of the json parser with the response from the class
 
-We can understand much better while we  try to solve the below questions.
+We can understand much better while we try to solve the below questions.
 
 {
 "dashboard": {
-"purchaseAmount": 910,
-"website": "rahulshettyacademy.com"
+    "purchaseAmount": 910,
+    "website": "rahulshettyacademy.com"
 },
 "courses": [
-{
-"title": "Selenium Python",
-"price": 50,
-"copies": 6
-},
-{
-"title": "Cypress",
-"price": 40,
-"copies": 4
-},
-{
-"title": "RPA",
-"price": 45,
-"copies": 10
-}
+    {
+    "title": "Selenium Python",
+    "price": 50,
+    "copies": 6
+    },
+
+    {
+    "title": "Cypress",
+    "price": 40,
+    "copies": 4
+    },
+
+    {
+    "title": "RPA",
+    "price": 45,
+    "copies": 10
+    }
 ]
 }
 
