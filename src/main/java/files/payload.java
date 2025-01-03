@@ -46,10 +46,10 @@ public class payload{
                 "}";
     }
 
-    public static String Addbook(String isbn, String aisle){
+    public static String Addbook(String isbn, String aisle){    // Addbook is the json payload we are sending while adding a book. This json contains 4 fields. name, isbn,aisle and author.
         return "{\n" +
                 "\"name\":\"Learn Appium Automation with Java\",\n" +
-                "\"isbn\":\""+isbn+"\",\n" +
+                "\"isbn\":\""+isbn+"\",\n" +    // We dynamically modified the json to take the inputs of isbn and aisle from the parameters passed to this method.
                 "\"aisle\":\""+aisle+"\",\n" +
                 "\"author\":\"John foer\"\n" +
                 "}\n";
