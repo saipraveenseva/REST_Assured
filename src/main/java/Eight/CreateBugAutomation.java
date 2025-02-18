@@ -1,11 +1,10 @@
-package Section.Eight;
+package Eight;
 
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 
 
 import java.io.File;
-import java.sql.SQLOutput;
 
 import static io.restassured.RestAssured.*;
 

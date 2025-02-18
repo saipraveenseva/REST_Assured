@@ -1,4 +1,4 @@
-package Section.Eight;
+package Eight;
 
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.*;
