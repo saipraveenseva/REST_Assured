@@ -31,7 +31,7 @@ public class ClientCredentialGrant {
 
 
         String CourseDetails = given()      // Now we use this access token to get the course details from the main end point.
-                                .queryParam("access_token","rkAKRUf6nnQYr4wt/N5Xlg==")  // passing the access_token as a query parameter
+                                .queryParam("access_token",accessToken)  // passing the access_token as a query parameter
 
                                 .when().get("/oauthapi/getCourseDetails")   // Actual endpoint where the courses are located.
 
