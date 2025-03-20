@@ -1,0 +1,46 @@
+Request method:	POST
+Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "accuracy": 100,
+    "name": "Sai praveen Seva",
+    "phone_number": "9959958191",
+    "address": "Ferry road, Ibrahimpatnam",
+    "website": "www.saipraveenseva.com",
+    "language": "Telugu",
+    "location": {
+        "lat": -38.456789,
+        "lng": -38.456789
+    },
+    "types": [
+        "Seva home"
+    ]
+}
+HTTP/1.1 200 OK
+Date: Tue, 25 Mar 2025 19:29:15 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 194
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "status": "OK",
+    "place_id": "30a5eb6be9f422784255454572f4b992",
+    "scope": "APP",
+    "reference": "c250ea8559b100de79e1727c5f98e04bc250ea8559b100de79e1727c5f98e04b",
+    "id": "c250ea8559b100de79e1727c5f98e04b"
+}

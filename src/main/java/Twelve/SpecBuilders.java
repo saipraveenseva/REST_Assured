@@ -36,7 +36,7 @@ public class SpecBuilders {
         // Compare the code with SerializationTest.java side by side for better understanding.
 
 
-        //RestAssured.baseURI="https://rahulshettyacademy.com";     // Commented this line because its a common line that we will use often and we write it in a RequestSpect Builder.
+        RestAssured.baseURI="https://rahulshettyacademy.com";     // Commented this line because its a common line that we will use often and we write it in a RequestSpect Builder.
 
         AddPlaceSerialization aps = new AddPlaceSerialization();
 
