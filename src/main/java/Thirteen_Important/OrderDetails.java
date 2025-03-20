@@ -3,7 +3,7 @@ package Thirteen_Important;
 public class OrderDetails {
 
     String country;
-    String productOrderId;
+    private String productOrderedId;
 
     public String getCountry() {
         return country;
@@ -13,11 +13,14 @@ public class OrderDetails {
         this.country = country;
     }
 
-    public String getProductOrderId() {
-        return productOrderId;
+    public String getProductOrderedId() {
+        return productOrderedId;
     }
 
-    public void setProductOrderId(String productOrderId) {
-        this.productOrderId = productOrderId;
+    public void setProductOrderedId(String productOrderedId) {
+        this.productOrderedId = productOrderedId;
     }
+
 }
+
+
