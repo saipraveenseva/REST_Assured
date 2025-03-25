@@ -10,14 +10,17 @@ import java.util.List;
 
 public class TestData {
 
-    public AddPlaceSerialization addPlacePayload() {        // AddPlaceSerialization.java is a where we have declared the attributes of the payload.
+    public AddPlaceSerialization addPlacePayload(String name, String language, String address) {        // AddPlaceSerialization.java is a where we have declared the attributes of the payload.
         AddPlaceSerialization aps = new AddPlaceSerialization();    // We are creating an object for that class and setting the values for it.
 
         aps.setAccuracy(100);
-        aps.setAddress("Ferry road, Ibrahimpatnam");
-        aps.setLanguage("Telugu");
+        //aps.setAddress("Ferry road, Ibrahimpatnam");    // Lets say  we wish to send the name, language and address as parameters instead of hardcoding it. We first modify the .feature file.
+        aps.setAddress(address);    // dynamically passing the data
+        //aps.setLanguage("Telugu");
+        aps.setLanguage(language);
         aps.setPhone_number("9959958191");
-        aps.setName("Sai praveen Seva");
+        // aps.setName("Sai praveen Seva");
+        aps.setName(name);                      // PS: Check the log file for the dynamically passed name, language and address.
         aps.setWebsite("www.saipraveenseva.com");
 
         List<String> myList = new ArrayList<String>();

@@ -11,10 +11,12 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
+import resources.APIResources;
 import resources.TestData;
 import resources.Utils;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,8 +37,10 @@ public class stepDefinitions extends Utils {        // ANy other utilities like 
 
     // This is the code we get into the output console if we run TestRunner.java without implementing stepDfinitions.jva
     // I copied the entire code and pasted it.
-    @Given("Add Place Payload")
-    public void add_place_payload() throws FileNotFoundException {  // The logging involves creating a file and writing the logs in it. Addressed in Utils.java. So we throw a FileNotFoundExpection incase of a missing file
+    @Given("Add Place Payload with {string} {string} {string}")
+    public void add_place_payload_with(String name, String language, String address) throws IOException { // The logging involves creating a file and writing the logs in it. Addressed in Utils.java. So we throw a FileNotFoundExpection incase of a missing file
+                        // As we are getting the name, language and address dynamically I have changed the method signature accordingly
+                        // we need to change the method signature of addPlacePayload() from TestData.java as well and include the parameters
 
         //*************************************** Copied given condition from SpecBuilders.java***********************
         // I deleted the comments that further explain the code SpecBuilder.java. Refer this file for further understanding
@@ -52,22 +56,33 @@ public class stepDefinitions extends Utils {        // ANy other utilities like 
 
         res=given().spec(requestSpecificationUtil())  // requestSpecificationUtil() exists in Utils.java where we declared Base URI.
                 // Instead of given.addQueryParam() we just write .spec(requestSpec) and pass on requestSpec object
-                .body(data.addPlacePayload());         // We have split the given with the response by writing Response separately
-
+                .body(data.addPlacePayload(name,language,address));         // We have split the given with the response by writing Response separately
+                                // passing the name, language, address from here.
                 // Instead of writing the payload in .given(), we write in TestData.java file inside a addPlacePayload() method.
                 // We create an object for this class as well.
 
     }
-    @When("user calls {string} with Post http request" )
-    public void user_calls_with_post_http_request_double_quotes_indicate_i_will_replace_add_place_api_with_other_api_without_changing_the_syntax_of_the_steps(String string) {
+    @When("user calls {string} with {string} http request" )
+    public void user_calls_with_post_http_request_double_quotes_indicate_i_will_replace_add_place_api_with_other_api_without_changing_the_syntax_of_the_steps(String resource, String httpMethod ) {
+
+        APIResources resourceAPI = APIResources.valueOf(resource);      // This would call the constructor we wrote in APIResource.java and pass the resource variable.
+
+        System.out.println(resourceAPI.getResource());
 
         responseSpec=new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
 
         //*************** Copied when condition from SpecBuilders.java *******************
-        response=res.when().post("/maps/api/place/add/json")
-
-                .then().spec(responseSpec).extract().response();    // Instead of .then().assertThat() we write spec(responseSpec) and pass responseSpec object.
-
+        //response=res.when().post("/maps/api/place/add/json")        // We can centralize this resources using enums. we write a seperate file where we have all the resources and access the required resource address
+                                                                            // rather than hard coding it like this.
+        // Commenting out the conventional way of sending resource data
+        if(httpMethod.equalsIgnoreCase("POST")) {
+            response = res.when().post(resourceAPI.getResource())
+                    .then().spec(responseSpec).extract().response();    // Instead of .then().assertThat() we write spec(responseSpec) and pass responseSpec object.
+        }
+        else if(httpMethod.equalsIgnoreCase("GET")){
+            response = res.when().get(resourceAPI.getResource())
+                    .then().spec(responseSpec).extract().response();        // We have not written logic for GET yet. Just demonstrating it.
+        }
     }
     @Then("the API call is success with status code {int}")
     public void the_api_call_is_success_with_status_code(Integer int1) {

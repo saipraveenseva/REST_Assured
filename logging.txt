@@ -12,11 +12,11 @@ Multiparts:		<none>
 Body:
 {
     "accuracy": 100,
-    "name": "Sai praveen Seva",
+    "name": "Seva",
     "phone_number": "9959958191",
-    "address": "Ferry road, Ibrahimpatnam",
+    "address": "Hyderabad",
     "website": "www.saipraveenseva.com",
-    "language": "Telugu",
+    "language": "English",
     "location": {
         "lat": -38.456789,
         "lng": -38.456789
@@ -26,7 +26,7 @@ Body:
     ]
 }
 HTTP/1.1 200 OK
-Date: Tue, 25 Mar 2025 19:29:15 GMT
+Date: Wed, 26 Mar 2025 19:26:03 GMT
 Server: Apache/2.4.52 (Ubuntu)
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: POST
@@ -39,8 +39,100 @@ Content-Type: application/json;charset=UTF-8
 
 {
     "status": "OK",
-    "place_id": "30a5eb6be9f422784255454572f4b992",
+    "place_id": "2f4c0ad3a4402ccd1d8aec83b6ebb2ad",
     "scope": "APP",
-    "reference": "c250ea8559b100de79e1727c5f98e04bc250ea8559b100de79e1727c5f98e04b",
-    "id": "c250ea8559b100de79e1727c5f98e04b"
+    "reference": "387e333f152a252c6d8f5c14fb064af4387e333f152a252c6d8f5c14fb064af4",
+    "id": "387e333f152a252c6d8f5c14fb064af4"
+}
+Request method:	POST
+Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "accuracy": 100,
+    "name": "Sai",
+    "phone_number": "9959958191",
+    "address": "Vijayawada",
+    "website": "www.saipraveenseva.com",
+    "language": "Telugu",
+    "location": {
+        "lat": -38.456789,
+        "lng": -38.456789
+    },
+    "types": [
+        "Seva home"
+    ]
+}
+HTTP/1.1 200 OK
+Date: Wed, 26 Mar 2025 19:26:04 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 194
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "status": "OK",
+    "place_id": "14d94a3999cc87c07462b5a904c1c29b",
+    "scope": "APP",
+    "reference": "d58698e9fc3bcee5323ef215c19e532dd58698e9fc3bcee5323ef215c19e532d",
+    "id": "d58698e9fc3bcee5323ef215c19e532d"
+}
+Request method:	POST
+Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "accuracy": 100,
+    "name": "Praveen",
+    "phone_number": "9959958191",
+    "address": "Allahabad",
+    "website": "www.saipraveenseva.com",
+    "language": "Hindi",
+    "location": {
+        "lat": -38.456789,
+        "lng": -38.456789
+    },
+    "types": [
+        "Seva home"
+    ]
+}
+HTTP/1.1 200 OK
+Date: Wed, 26 Mar 2025 19:26:04 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 194
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "status": "OK",
+    "place_id": "da64ea7655c048e24bc287a29b157116",
+    "scope": "APP",
+    "reference": "a3d6e201a923007751347ced5a0adb07a3d6e201a923007751347ced5a0adb07",
+    "id": "a3d6e201a923007751347ced5a0adb07"
 }
