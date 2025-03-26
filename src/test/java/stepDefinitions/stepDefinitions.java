@@ -31,6 +31,9 @@ public class stepDefinitions extends Utils {        // ANy other utilities like 
     Response response;
 
 
+
+
+
     //*************** WE CREATE the RequestSpecification and Response object above instead of writing in .given()************
 
     TestData data = new TestData(); // payload in written in TestData.java we are creating an object for it.
@@ -63,7 +66,7 @@ public class stepDefinitions extends Utils {        // ANy other utilities like 
 
     }
     @When("user calls {string} with {string} http request" )
-    public void user_calls_with_post_http_request_double_quotes_indicate_i_will_replace_add_place_api_with_other_api_without_changing_the_syntax_of_the_steps(String resource, String httpMethod ) {
+    public void user_calls_with_http_request(String resource, String httpMethod ) {
 
         APIResources resourceAPI = APIResources.valueOf(resource);      // This would call the constructor we wrote in APIResource.java and pass the resource variable.
 
@@ -95,8 +98,8 @@ public class stepDefinitions extends Utils {        // ANy other utilities like 
     public void in_response_body_is(String keyValue, String ExpectedValue) {
             // In .then() of placeValidations.feature file we have "status" and "OK" as value. These will sit in "keyValue" and "ExpectedValue".
         String resp = response.asString();
-        JsonPath js = new JsonPath(resp);
-        assertEquals(js.get(keyValue),ExpectedValue);
+
+        assertEquals(getJsonPath(response,keyValue),ExpectedValue);
         //js.get(keyValue) gives the keyValue of the key "status" as "OK"
         // We are comparing it with ExpectedValue "OK"
 
@@ -108,8 +111,28 @@ public class stepDefinitions extends Utils {        // ANy other utilities like 
         String resp = response.asString();
         JsonPath js = new JsonPath(resp);
         assertEquals(js.get(keyValue1),ExpectedValue1);
+
         //js.get(keyValue) gives the keyValue of the key "status" as "OK"
         // We are comparing it with ExpectedValue "OK"
+
+    }
+
+    /*
+        We are validating if the place_id generated corresponds to the place we added.
+        We use the place_id and send it as a parameter to getPlaceAPI and the get the details.
+        In those details we validate the place name with the input we have given in the payload.
+     */
+    @Then("verify the place_id generated maps to {string} using {string}")
+    public void verify_the_place_id_generated_maps_to_using(String expectedName, String resource) throws IOException {
+
+        String place_id = getJsonPath(response,"place_id");     // getJsonPath is a method written in Utils.java that will fetch the place_id from the response. So we pass the response the place_id key to get the place_id value. It is stored in place_id variable.
+        res=given().log().all().spec(requestSpecificationUtil())      // given sends the baseURI, logging, required query parameters
+                .queryParam("place_id",place_id);
+
+        user_calls_with_http_request(resource,"GET");       // Instead of writing a when and send the get from it we are using a previously used method user_calls_with_http_request.
+                                                                        // this method can handle any http request. Refer APIResources.java to get a picture.
+        String responseName = getJsonPath(response,"name");     // We are getting the name of the place we added and storing it in responseName
+        assertEquals(responseName,expectedName);                // asserting the responseName with the expectedName that we assigned in placeValidations.feature.
 
     }
 

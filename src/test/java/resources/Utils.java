@@ -4,6 +4,8 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import java.io.*;
@@ -54,4 +56,16 @@ public class Utils {
         return prop.getProperty(key);    // using prop and load() in Properties class and passing the fis object
 
     }                   // passing the baseURI variable.
+
+
+    /*
+        Writing a generalised getJsonPath() method to reuse the same code for get Json utility.
+     */
+
+    public String getJsonPath(Response response, String key)
+    {
+        String resp = response.asString();
+        JsonPath js = new JsonPath(resp);
+        return js.get(key).toString();
+    }
 }

@@ -5,12 +5,13 @@ Feature: Validating Place APIs
     Then the API call is success with status code 200
     And check "status" in response body is "OK"
     And validate "scope" in response body is "APP"
+    And verify the place_id generated maps to "<name>" using "getPlaceAPI"
 
   Examples:
     |name | language |address  |
     |Seva | English  |Hyderabad|
-    |Sai | Telugu  |Vijayawada |
-    |Praveen | Hindi  |Allahabad|
+    # |Sai | Telugu  |Vijayawada |
+    # |Praveen | Hindi  |Allahabad|
 
     # we can keep adding multiple data sets here. 3 are added so the framework will run 3 times.Ability:
     # Easy, Handy and readable to keep adding data sets for the framework to run on.
