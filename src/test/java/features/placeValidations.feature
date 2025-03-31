@@ -1,4 +1,5 @@
 Feature: Validating Place APIs
+  @AddPlaceGetPlace
   Scenario Outline: Verify if place is being successfully added using AddPlaceAPI
     Given Add Place Payload with "<name>" "<language>" "<address>"
     When user calls "AddPlaceAPI" with "POST" http request
@@ -12,6 +13,16 @@ Feature: Validating Place APIs
     |Seva | English  |Hyderabad|
     # |Sai | Telugu  |Vijayawada |
     # |Praveen | Hindi  |Allahabad|
+
+  @DeletePlace    # Including tags like these will assign some tags to the testcase which we can use to skip or not skip a particular testcase
+  Scenario: Verify if Delete place functionality is working.
+    Given DeletePlace payload
+    When user calls "deletePlaceAPI" with "POST" http request
+    Then the API call is success with status code 200
+    And check "status" in response body is "OK"
+
+    # We have written testcase for deletePlace as well. When, Then and And are already written in the above testcase. All we have to implement is Given.
+
 
     # we can keep adding multiple data sets here. 3 are added so the framework will run 3 times.Ability:
     # Easy, Handy and readable to keep adding data sets for the framework to run on.

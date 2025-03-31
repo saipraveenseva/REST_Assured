@@ -30,8 +30,8 @@ public class stepDefinitions extends Utils {        // ANy other utilities like 
     ResponseSpecification responseSpec;
     Response response;
 
-
-
+    static String place_id; // This should be a static as the place_id will be used by multiple testcase
+                // If it were to be a non-static it gets overriden for every testcase.
 
 
     //*************** WE CREATE the RequestSpecification and Response object above instead of writing in .given()************
@@ -125,8 +125,8 @@ public class stepDefinitions extends Utils {        // ANy other utilities like 
     @Then("verify the place_id generated maps to {string} using {string}")
     public void verify_the_place_id_generated_maps_to_using(String expectedName, String resource) throws IOException {
 
-        String place_id = getJsonPath(response,"place_id");     // getJsonPath is a method written in Utils.java that will fetch the place_id from the response. So we pass the response the place_id key to get the place_id value. It is stored in place_id variable.
-        res=given().log().all().spec(requestSpecificationUtil())      // given sends the baseURI, logging, required query parameters
+        place_id = getJsonPath(response,"place_id");     // getJsonPath is a method written in Utils.java that will fetch the place_id from the response. So we pass the response the place_id key to get the place_id value. It is stored in place_id variable.
+        res=given().spec(requestSpecificationUtil())      // given sends the baseURI, logging, required query parameters
                 .queryParam("place_id",place_id);
 
         user_calls_with_http_request(resource,"GET");       // Instead of writing a when and send the get from it we are using a previously used method user_calls_with_http_request.
@@ -136,5 +136,13 @@ public class stepDefinitions extends Utils {        // ANy other utilities like 
 
     }
 
+    @Given("DeletePlace payload")
+    public void delete_place_payload() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+
+        res = given().spec(requestSpecificationUtil()).body(data.deletePlacePayload(place_id));
+
+        // Just written the Given implementation and we are getting the place_id from above passing it as a payload using deletePlacePayload in TestData.java file
+    }
 
 }

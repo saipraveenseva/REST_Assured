@@ -35,4 +35,9 @@ public class TestData {
 
         return aps;
     }
+
+    public String deletePlacePayload(String place_id) {
+        return "{\r\n    \"place_id\":\""+place_id+"\"\r\n}\r\n";
+    }
+
 }
