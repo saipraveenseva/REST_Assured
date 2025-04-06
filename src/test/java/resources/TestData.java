@@ -1,5 +1,4 @@
 package resources;
-
 import Eleven.AddPlaceSerialization;
 import Eleven.Location; // Location.java is a pojo class we have written where we have the getters and setters of the date to be pushed into AddPlacePI
 

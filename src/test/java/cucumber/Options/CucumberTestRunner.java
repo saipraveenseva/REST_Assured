@@ -11,15 +11,14 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/java/features",
-        glue={"stepDefinitions"},
-        tags="@AddPlaceGetPlace"        // If we wish to run only a particular testcase we write a tag and mention the tag here
+        glue={"stepDefinitions"}    // If we wish to run only a particular testcase we write a tag in feature file and mention the tag here
                                     // If we were to run all testcases except this one then we write tags="not @AddPlaceGetPlace"
 )
 
 //@RunWith(Cucumber.class) states that we need Junit to run this.
 // @CucumberOptions will give location of feature file and stepDefinitions file
 
-public class TestRunner {
+public class CucumberTestRunner {
 
     // Without writing any stepDefinitions, if we run this TestRunner, we will get an error
     // indicating the given, when and then does not have a relevant implementation written yet.

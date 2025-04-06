@@ -1,10 +1,6 @@
 package stepDefinitions;
 
-import Eleven.AddPlaceSerialization;
-import Eleven.Location;
 import io.cucumber.java.en.*;
-import io.restassured.RestAssured;
-import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
@@ -15,15 +11,12 @@ import resources.APIResources;
 import resources.TestData;
 import resources.Utils;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
 
-public class stepDefinitions extends Utils {        // ANy other utilities like Base URI are declated in Utils.java so we can reuse it instead of writing it again and again.
+public class stepDefinition extends Utils {        // ANy other utilities like Base URI are declated in Utils.java so we can reuse it instead of writing it again and again.
     // Instead of creating object for Utils.java we just extend it. Just demonstrating inheritance.
     RequestSpecification res;
 
